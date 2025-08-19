@@ -87,27 +87,32 @@
                     <p class="text-gray-600 mt-1 text-base md:text-lg">สาขาวิชาคอมพิวเตอร์ธุรกิจ</p>
                     <p class="text-gray-600 mt-1 text-base md:text-lg">ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองนครราชสีมา</p>
                 </div>
-                <div class="max-w-lg mx-auto rounded-xl p-8 bg-gradient-to-br from-purple-600 to-purple-800 shadow-2xl shadow-purple-500/40 transition-all duration-300 hover:-translate-y-1">
-                    <h3 class="text-2xl font-bold text-center text-white mb-6 tracking-wide">ค้นหาด้วยรหัสนักศึกษา</h3>
-                    <div class="space-y-4">
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                <svg class="w-5 h-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                                </svg>
-                            </div>
-                            <input type="text" id="studentIdInput" class="w-full pl-12 pr-4 py-3 bg-white/10 border-2 border-transparent text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/20 placeholder-gray-300 transition" placeholder="กรอกรหัสนักศึกษา...">
-                        </div>
-                        <button id="searchButton" class="w-full bg-yellow-500 text-purple-900 font-bold px-8 py-3 rounded-lg hover:bg-yellow-600 transition-all transform hover:scale-105 shadow-lg shadow-yellow-500/50 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
-                            <span>ค้นหา</span>
-                        </button>
-                    </div>
-                </div>
                 
-                <!-- Numeric Keypad for touch devices -->
-                <div id="numericKeypad" class="max-w-xs mx-auto mt-6 grid grid-cols-3 gap-3 md:hidden">
-                    <!-- JavaScript will populate this area -->
+                <!-- Main Search Area Container -->
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-8 w-full">
+                    <!-- Left side: Search Box -->
+                    <div class="w-full max-w-md rounded-xl p-8 bg-gradient-to-br from-purple-600 to-purple-800 shadow-2xl shadow-purple-500/40 transition-all duration-300 hover:-translate-y-1">
+                        <h3 class="text-2xl font-bold text-center text-white mb-6 tracking-wide">ค้นหาด้วยรหัสนักศึกษา</h3>
+                        <div class="space-y-4">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                    </svg>
+                                </div>
+                                <input type="text" id="studentIdInput" class="w-full pl-12 pr-4 py-3 bg-white/10 border-2 border-transparent text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/20 placeholder-gray-300 transition" placeholder="กรอกรหัสนักศึกษา...">
+                            </div>
+                            <button id="searchButton" class="w-full bg-yellow-500 text-purple-900 font-bold px-8 py-3 rounded-lg hover:bg-yellow-600 transition-all transform hover:scale-105 shadow-lg shadow-yellow-500/50 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                                <span>ค้นหา</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right side: Numeric Keypad -->
+                    <div id="numericKeypad" class="w-full max-w-[240px] grid grid-cols-3 gap-3 mt-4 lg:mt-0">
+                        <!-- JavaScript will populate this area -->
+                    </div>
                 </div>
 
                 <div class="text-center mt-12 text-sm text-gray-500">
@@ -172,13 +177,13 @@
                 keyElement.textContent = key;
                 keyElement.type = 'button';
 
-                const baseClasses = 'h-16 w-full flex items-center justify-center rounded-xl text-2xl font-semibold transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-400';
+                const baseClasses = 'h-16 w-full flex items-center justify-center rounded-xl text-2xl font-bold transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-400';
                 let specificClasses = '';
 
                 if (key === 'C' || key === '⌫') {
-                    specificClasses = 'bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400 active:scale-95 text-xl';
+                    specificClasses = 'bg-purple-200 text-purple-800 hover:bg-purple-300 active:bg-purple-400 active:scale-95 text-xl';
                 } else {
-                    specificClasses = 'bg-white text-gray-700 shadow-md hover:bg-purple-50 active:bg-purple-100 active:scale-95';
+                    specificClasses = 'bg-white/80 backdrop-blur-sm text-purple-800 shadow-lg hover:bg-white active:bg-gray-100 active:scale-95';
                 }
 
                 keyElement.className = `${baseClasses} ${specificClasses}`;
